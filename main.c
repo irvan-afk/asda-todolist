@@ -1,13 +1,23 @@
+
+#define RAYGUI_IMPLEMENTATION
+#include "./raylib/include/raygui.h"
 #include "./raylib/include/raylib.h"
+#include "./include/linkedlist.h"
+#include "./include/stack.h"
+#include "./include/queue.h"
+#include "utils.h"
 #include <stdio.h>
 
 int main(void)
 {
+
     // Inisialisasi window
     const int screenWidth = 800;
     const int screenHeight = 450;
     InitWindow(screenWidth, screenHeight, "Raylib Test Window");
-    Font myFont = LoadFontEx("./assets/font/poppins.ttf", 32, 0, 0);
+    Font myFont = LoadFontEx("./assets/font/poppins.ttf", 64, 0, 0);
+    GuiSetFont(myFont);
+    SetTargetFPS(60); // Set frame per second
     // Loop utama aplikasi
     while (!WindowShouldClose()) // Loop sampai user tekan ESC atau close
     {
@@ -15,10 +25,7 @@ int main(void)
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        DrawTextEx(myFont, "Ini pakai font custom!", (Vector2){ 100, 200 }, 32, 2, BLACK);
-         char posText[64];
-        sprintf(posText, "x = %d, y = %d", (int)position.x, (int)position.y);
-        DrawTextEx(myFont, posText, (Vector2){ 100, 250 }, 32, 2, BLACK);
+        drawMenu();
         EndDrawing();
     }
 

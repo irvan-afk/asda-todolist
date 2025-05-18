@@ -1,0 +1,1 @@
+gcc -o main.exe main.c utils.c -lraylib -lopengl32 -lgdi32 -lwinmm
