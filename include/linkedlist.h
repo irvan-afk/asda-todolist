@@ -12,4 +12,6 @@ typedef struct Tugas {
     struct Tugas* next;
 } Tugas;
 
+void InitTugas(Tugas **p);
+
 #endif
